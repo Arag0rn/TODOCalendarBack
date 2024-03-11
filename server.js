@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
-
+import dotenv from "dotenv";
 import app from './app.js';
+
+
+dotenv.config();
 
 const {DB_HOST} = process.env;
 
