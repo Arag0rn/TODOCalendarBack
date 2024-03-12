@@ -59,9 +59,9 @@ const updateById = async (req, res) => {
 }
 
 const deleteById = async (req, res) => {
-    const { contactId } = req.params;
+    const { todoId } = req.params;
     const {_id: owner} = req.user;
-    const result = await TODO.findOneAndDelete({_id: contactId, owner});
+    const result = await TODO.findOneAndDelete({_id: todoId, owner});
 
     if (!result) {
         throw HttpError(404, `TODO with id=${contactId} not found`);
