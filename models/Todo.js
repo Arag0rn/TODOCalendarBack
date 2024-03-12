@@ -22,6 +22,9 @@ const todoSchema  = new Schema ({
       time: {
         type: String,
       },
+      importance:{
+        type: String,
+      },
       owner: {
         type: Schema.Types.ObjectId,
         ref: 'user',
