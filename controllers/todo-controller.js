@@ -52,7 +52,7 @@ const updateById = async (req, res) => {
     const {_id: owner} = req.user;
     const result = await Contact.findOneAndUpdate({_id: todoId, owner}, req.body);
     if (!result) {
-        throw HttpError(404, `Contact with id=${todoId} not found`);
+        throw HttpError(404, `Todo with id=${todoId} not found`);
     }
 
     res.json(result);
@@ -61,13 +61,13 @@ const updateById = async (req, res) => {
 const deleteById = async (req, res) => {
     const { contactId } = req.params;
     const {_id: owner} = req.user;
-    const result = await Contact.findOneAndDelete({_id: contactId, owner});
+    const result = await TODO.findOneAndDelete({_id: contactId, owner});
 
     if (!result) {
-        throw HttpError(404, `Contact with id=${contactId} not found`);
+        throw HttpError(404, `TODO with id=${contactId} not found`);
     }
 
-    // res.status(204).send();
+    res.status(204).send();
 
     res.json({
         message: "Delete success"
